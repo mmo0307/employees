@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { nanoid } from 'nanoid/non-secure'
 
 import AppInfo from '../app-info/app-info';
 import SearchPanel from '../search-panel/search-panel';
@@ -15,14 +16,14 @@ class App extends Component {
         {
             data: 
                 [
-                    {id: 1, name: 'Misha Mishin', salary: 900, increase: false, rise: false},
-                    {id: 2, name: 'Alex Boryh', salary: 300, increase: true, rise: true},
-                    {id: 3, name: 'Vitalik Neterin', salary: 6700, increase: false, rise: false}
+                    {id: nanoid(), name: 'Misha Mishin', salary: 900, increase: false, rise: false},
+                    {id: nanoid(), name: 'Alex Boryh', salary: 300, increase: true, rise: true},
+                    {id: nanoid(), name: 'Vitalik Neterin', salary: 6700, increase: false, rise: false}
                 ],
                 term: '',
                 filter: 'all'
         }
-        this.maxId = 4;
+        this.maxId = nanoid();
     }
 
     deleteItem = (id) => {
@@ -44,7 +45,7 @@ class App extends Component {
             salary,
             increase: false,
             rise: false,
-            id: this.maxId++
+            id: nanoid()
         }
         this.setState(({data}) => {
             const newArr = [...data, newItem];
